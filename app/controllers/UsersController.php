@@ -34,7 +34,7 @@ class UsersController
     public function show($id)
     {
         // $id = array_slice(explode('/', rtrim($_SERVER['REQUEST_URI'], '/')), -1)[0];
-        print_r($uri);
+        // print_r($uri);
 
         $user = App::get('database')->get('users', [
             'id' => $id
