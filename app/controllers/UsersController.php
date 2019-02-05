@@ -31,15 +31,17 @@ class UsersController
     /**
      * Show selected user.
      */
-    public function show($id)
+    public function show($id = [])
     {
-        // $id = array_slice(explode('/', rtrim($_SERVER['REQUEST_URI'], '/')), -1)[0];
-        // print_r($uri);
+
+        $id = array_slice(explode('/', rtrim($_SERVER['REQUEST_URI'], '/')), -1)[0];
 
         $user = App::get('database')->get('users', [
             'id' => $id
         ]);
-
+        if (empty($user)) {
+            return redirect('users');
+        }
         return view('user', compact('user'));
     }
 
@@ -48,7 +50,6 @@ class UsersController
      */
     public function delete()
     {
-
         $userDelete = App::get('database')->delete('users', [
             'id' => $_POST['user-id']
         ]);

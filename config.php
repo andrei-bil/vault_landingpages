@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'db_name',
+        'name' => 'the_vault_landingpages',
         'username' => 'root',
         'password' => '',
         'connection' => 'mysql:host=127.0.0.1',
